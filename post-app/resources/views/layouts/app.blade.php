@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="">Home </a>
+                        <a class="nav-link" href="{{route('home')}}">Home </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('dashboard') }}">Dashbord </a>
@@ -39,16 +39,20 @@
                             <a class="nav-link " href="">patrick </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link " href="">logout</a>
+                            <a class="nav-link " href="{{route('logout')}}">logout</a>
                         </li>
                     @endauth
+                    
+                    @guest
+                        
+                   
                         <li class="nav-item ">
                             <a class="nav-link " href="{{ route('login') }}">login</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link " href="{{ route('register') }}">register</a>
                         </li>
-                    
+                    @endguest
                 </ul>
             </div>
         </div>

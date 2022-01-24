@@ -2,7 +2,7 @@
 @section('title', 'register')
 
 @section('content')
-    <form action="{{ 'register' }}" method="post">
+    <form action="{{ route('register') }}" method="post">
         @csrf
         <div class="container mt-5">
             <div class="row">
@@ -24,10 +24,10 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="surname">surname</label>
-                                <input type="text" class="form-control  @error('surname') is-invalid @enderror"
-                                    name="surname" placeholder="Username">
-                                @error('surname')
+                                <label for="username">username</label>
+                                <input type="text" class="form-control  @error('username') is-invalid @enderror"
+                                    name="username" placeholder="Username">
+                                @error('username')
                                     <div class="invalid-feedback">
                                         <span>{{ $message }}</span>
                                     </div>
