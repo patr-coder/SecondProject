@@ -2,22 +2,21 @@
 @section('title', 'register')
 
 @section('content')
-    <form action="{{ 'auth.register' }}" method="post">
+    <form action="{{ 'register' }}" method="post">
+        @csrf
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3 mt-4 text-center">
                     <h3>Welcome, create an account to get started</h3>
-                    <p class="text-muted">Already have an account? please go to <a href="">login</a></p>
+                    <p class="text-muted">Already have an account? please go to <a href="{{ ('login') }}">login</a></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 offset-md-3 mt-4">
-                    <form method="POST">
-                        @csrf
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="name">name</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Name">
                                 @error('name')
                                     <div class="invalid-feedback">
                                         <span>{{ $message }}</span>
@@ -27,7 +26,7 @@
                             <div class="form-group col-md-6">
                                 <label for="surname">surname</label>
                                 <input type="text" class="form-control  @error('surname') is-invalid @enderror"
-                                    name="surname">
+                                    name="surname" placeholder="Username">
                                 @error('surname')
                                     <div class="invalid-feedback">
                                         <span>{{ $message }}</span>
@@ -48,7 +47,7 @@
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                name="password">
+                                name="password" placeholder="Choose a Password">
                             @error('password')
                                 <div class="invalid-feedback">
                                     <span>{{ $message }}</span>
@@ -57,7 +56,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="password_confirmation" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" name="password_confirmation">
+                            <input type="password" class="form-control" name="password_confirmation" repeat your password>
                         </div>
                         <button class="btn btn-primary" type="submit">Register</button>
                     </form>
