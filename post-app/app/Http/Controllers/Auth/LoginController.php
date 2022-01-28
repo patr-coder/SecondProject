@@ -31,29 +31,7 @@ class LoginController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function login(Request $request){
-
-        $message = array(
-            'required.email'    =>  'This is required',
-            'required.password' =>  'This is required',
-        );
-        $this->validate($request,[
-            'email' =>  'required',
-            'password'  =>  'required',
-        ],$message);
     
-        $email = $request->email;
-        $pass = $request->password;
-    
-        if(auth::attempt(['email' => $email, 'password' => $pass, 'status' => 1])){
-            Session::flash('success','Welcome '.Auth::user()->name);
-            return redirect()->route('dashboard');
-        }else{
-            Session::flash('error','Sorry! Try Again. It seems your login credential is not correct.');
-            return redirect()->back();
-        }
-    
-    }
 
 
 }

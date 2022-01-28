@@ -18,7 +18,7 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-           // dd($request->only('email','password'));
+           
         $this->validate($request, [
             'name' => 'required|max:255',
             'username' => 'required|max:225',
@@ -38,8 +38,8 @@ class RegisterController extends Controller
             
         
 
-        return redirect(('/dashboard'));
-        //return redirect()->route('dashboard');
+        
+        return redirect()->route('dashboard');
 
     }
 }
